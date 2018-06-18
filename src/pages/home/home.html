@@ -1,14 +1,73 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content >
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-slides pager>
+
+  <ion-slide >
+    <ion-toolbar>
+      <ion-buttons end>
+        <button (click)="entrar()" ion-button color="primary">Pular</button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <img src="assets/imgs/um.png"/>
+    <h2>Slide 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+  </ion-slide>
+
+  <ion-slide >
+    <img src="assets/imgs/dois.png"/>
+    <h2>Slide 2</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+  </ion-slide>
+
+  <ion-slide >
+    <img src="assets/imgs/tres.png"/>
+    <h2>Slide 3</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+  </ion-slide>
+
+  <ion-slide >
+    <img src="assets/imgs/quatro.png"/>
+    <h2>Slide 3</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+  </ion-slide>
+
+  <ion-slide >
+    <button ion-button color="primary" (click)="entrar()">Cadastre - se</button>
+    
+    <p>ou</p>
+    
+    <ion-toolbar>
+      <ion-buttons center>
+        <button (click)="entrar()" ion-button color="primary">Já tenho Login</button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    
+
+
+  </ion-slide>
+
+</ion-slides>
+  
+
+  <ion-item>
+    <ion-label>login</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Senha</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <button ion-button outline full>Login</button>
+
+  <p>ou</p>
+  <a href="">Cadastre-se</a>
+
+
+
+  
+
 </ion-content>
