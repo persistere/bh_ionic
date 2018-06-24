@@ -28,8 +28,11 @@ export class ListaPage {
 
       this.wsBarbersService.getbarbers()
       .subscribe(data => {
-        for (let post of data) {
-          
+        console.log("------------------>")
+        console.log(data.barbers)
+        console.log("------------------>")
+        for (let post of data.barbers) {
+          this.posts.push(post)
         }
         loading.dismiss();
       });

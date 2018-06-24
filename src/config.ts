@@ -1,1 +1,1 @@
-export const WSBARBERS = 'http://barberinhome.com.br/app/rest/wsBarbers';
+export const WSBARBERS = 'http://barberinhome.com.br/app/rest/wsBarbersI';
