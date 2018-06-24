@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
-/**
- * Generated class for the ListaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ConfirmacaoPage } from '../confirmacao/confirmacao';
+
+import { WsBarbersService } from '../../services/wsBarbers.service';
 
 @IonicPage()
 @Component({
@@ -15,11 +12,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  posts: Array<any> = new Array<any>();
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public loadingController: LoadingController,
+              public wsBarbersService: WsBarbersService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaPage');
+    if(!(this.posts.length > 0)){
+      let loading = this.loadingController.create();
+      loading.present();
+
+
+      this.wsBarbersService.getbarbers()
+      .subscribe(data => {
+        for (let post of data) {
+          
+        }
+        loading.dismiss();
+      });
+
+    }
+  }
+
+  confirmacao(){
+  	this.navCtrl.push(ConfirmacaoPage);
   }
 
 }
