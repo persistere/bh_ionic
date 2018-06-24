@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { ListaPage } from '../lista/lista';
+import { CadastroPage } from '../cadastro/cadastro';
+import { LoginPage } from '../login/login';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 @Component({
   selector: 'page-home',
@@ -9,12 +13,56 @@ import { ListaPage } from '../lista/lista';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  intro: boolean;
 
+  constructor(public navCtrl: NavController, 
+              private navParams: NavParams,
+              private nativeStorage: NativeStorage) {
+
+    this.intro = this.navParams.get('intro');
   }
+
+  ionViewDidEnter(){
+    this.setStorage();
+  }
+
+  
+
+  setStorage(){
+    this.nativeStorage.setItem('myitem',{
+      intro: this.intro
+    })
+    .then( ()=> {
+       console.log("Salvo");
+    })
+    .catch( error => {
+      console.log(error);
+    })
+  }
+
+  getStorage(){
+    return this.nativeStorage.getItem('myitem')
+    .then(
+        data => {
+            this.intro = true;
+        })
+    .catch( () => {
+        this.intro = false;
+    });
+  }
+
 
   entrar() {
   	this.navCtrl.push(ListaPage);
+    this.setStorage();
+  }
+
+  cadastrar() {
+  	this.navCtrl.push(CadastroPage);
+  }
+
+  logar() {
+  	this.navCtrl.push(LoginPage);
   }
 
 }
