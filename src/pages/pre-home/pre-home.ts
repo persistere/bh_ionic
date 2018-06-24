@@ -12,7 +12,9 @@ import { LoginPage } from '../login/login';
 })
 export class PreHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private viewCtrl: ViewController) {
   }
 
   ionViewWillEnter() {

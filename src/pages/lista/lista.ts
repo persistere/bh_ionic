@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
 
 import { ConfirmacaoPage } from '../confirmacao/confirmacao';
 
@@ -17,10 +17,17 @@ export class ListaPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public loadingController: LoadingController,
-              public wsBarbersService: WsBarbersService) {
+              public wsBarbersService: WsBarbersService,
+              private viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
+    this.viewCtrl.showBackButton(false);
+
+    this.loadBarbers();    
+  }
+
+  loadBarbers(){
     if(!(this.posts.length > 0)){
       let loading = this.loadingController.create();
       loading.present();
@@ -33,7 +40,6 @@ export class ListaPage {
         }
         loading.dismiss();
       });
-
     }
   }
 
