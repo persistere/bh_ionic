@@ -4,6 +4,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ListaPage } from '../lista/lista';
 import { CadastroPage } from '../cadastro/cadastro';
 import { LoginPage } from '../login/login';
+import { PreHomePage } from '../pre-home/pre-home';
+
+
 import { NativeStorage } from '@ionic-native/native-storage';
 
 
@@ -53,7 +56,7 @@ export class HomePage {
 
 
   entrar() {
-  	this.navCtrl.push(ListaPage);
+  	this.navCtrl.push(PreHomePage);
     this.setStorage();
   }
 
