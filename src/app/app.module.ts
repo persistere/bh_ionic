@@ -13,6 +13,7 @@ import { AgendaPage } from '../pages/agenda/agenda';
 import { ConfirmacaoPage } from '../pages/confirmacao/confirmacao';
 import { PagamentoPage } from '../pages/pagamento/pagamento';
 import { PreHomePage } from '../pages/pre-home/pre-home';
+import { SucessoPage } from '../pages/sucesso/sucesso';
 
 import { NativeStorage } from '@ionic-native/native-storage';
 import { BancoProvider } from '../providers/banco/banco';
@@ -31,7 +32,8 @@ import { HttpModule } from '@angular/http';
     AgendaPage,
     ConfirmacaoPage,
     PagamentoPage,
-    PreHomePage
+    PreHomePage,
+    SucessoPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { HttpModule } from '@angular/http';
     AgendaPage,
     ConfirmacaoPage,
     PagamentoPage,
-    PreHomePage
+    PreHomePage,
+    SucessoPage
   ],
   providers: [
     StatusBar,

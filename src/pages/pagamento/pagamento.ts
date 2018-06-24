@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the PagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { SucessoPage } from '../sucesso/sucesso';
 
 @IonicPage()
 @Component({
@@ -20,6 +15,10 @@ export class PagamentoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagamentoPage');
+  }
+
+  pagamento() {
+  	this.navCtrl.push(SucessoPage);
   }
 
 }
