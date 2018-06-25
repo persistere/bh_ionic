@@ -20,7 +20,9 @@ export class ConfirmacaoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfirmacaoPage');
+    
+    
+    
   }
 
   pagamento() {

@@ -43,8 +43,10 @@ export class ListaPage {
     }
   }
 
-  confirmacao(){
-  	this.navCtrl.push(ConfirmacaoPage);
+  confirmacao(event, post){
+  	this.navCtrl.push(ConfirmacaoPage, {
+      item: post
+    });
   }
 
 }
