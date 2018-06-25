@@ -24,7 +24,7 @@ export class ListaPage {
   ionViewDidLoad() {
     this.viewCtrl.showBackButton(false);
 
-    this.loadBarbers();    
+    this.loadBarbers(); 
   }
 
   loadBarbers(){

@@ -1,6 +1,6 @@
 {
   "name": "barberinhome",
-  "app_id": "",
+  "app_id": "4add3349",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
