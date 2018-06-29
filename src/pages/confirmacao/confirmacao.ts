@@ -4,6 +4,9 @@ import { WsBarbersService } from '../../services/wsBarbers.service';
 
 import { SucessoPage } from '../sucesso/sucesso';
 
+import { AlertController } from 'ionic-angular';
+
+
 
 
 @IonicPage()
@@ -21,7 +24,8 @@ export class ConfirmacaoPage {
 	}
 
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public alertCtrl: AlertController) {
   }
 
   ionViewWillLoad() {
@@ -36,8 +40,29 @@ export class ConfirmacaoPage {
     
   }
 
+  
   pagamento() {
-  	this.navCtrl.push(SucessoPage);
+
+    const confirm = this.alertCtrl.create({
+      title: 'Tem certeza que deseja chamar o barbeiro?',
+      message: 'Após clicar em confirmar o barbeiro irá até o local escolhido no dia e na hora selecionados',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('Agree clicked');
+            this.navCtrl.push(SucessoPage);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
