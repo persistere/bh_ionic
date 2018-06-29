@@ -17,7 +17,7 @@ export class RecuperarPage {
   				public toastCtrl: ToastController,
   				public fire: AngularFireAuth) { }
 
-    recuperarSenha() {
+  recuperarSenha() {
 
   	let toast = this.toastCtrl.create({duration: 2000, position: 'botom'});
 
@@ -32,5 +32,4 @@ export class RecuperarPage {
         }
   	})
   }
-
 }

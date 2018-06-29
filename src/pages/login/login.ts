@@ -18,7 +18,12 @@ export class LoginPage {
   @ViewChild('email') email;
   @ViewChild('password') password;
 
-  okLogin:boolean = false;
+  public okLogin:boolean = false;
+
+  public showing:boolean = false;
+
+  public isenabled:boolean= true;
+
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -33,7 +38,7 @@ export class LoginPage {
   entrar() {
     let toast = this.toasCtrl.create({duration: 2000, position: 'bottom'});
 
-    
+      
       if(this.email.value == '' ){
         toast.setMessage('Preencha o e-mail').present();  
       }else {
@@ -49,7 +54,7 @@ export class LoginPage {
       .then( data => {
         this.navCtrl.push(ListaPage);
       })
-      .catch((error: any)=> {
+      .catch((error: any)=> { 
         if(error.code == 'auth/invalid-email'){
           toast.setMessage('E-mail invalido').present();  
         }else if(error.code == 'auth/user-disabled'){
