@@ -36,7 +36,7 @@ export class HomePage {
       intro: this.intro
     })
     .then( ()=> {
-       console.log("Salvo");
+       this.entrar();
     })
     .catch( error => {
       console.log(error);
