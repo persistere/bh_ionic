@@ -10,6 +10,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class RecuperarPage {
 
+  public okLogin:boolean = false;
+
 	@ViewChild('email') email;
 
   constructor(public navCtrl: NavController, 
@@ -20,6 +22,10 @@ export class RecuperarPage {
   recuperarSenha() {
 
   	let toast = this.toastCtrl.create({duration: 2000, position: 'botom'});
+
+    if(this.email.value == '' ){
+        toast.setMessage('Preencha o e-mail').present();  
+    }else{ this.okLogin = true; }
 
   	this.fire.auth.sendPasswordResetEmail(this.email.value)
   	.then(() => {
