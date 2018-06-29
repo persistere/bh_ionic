@@ -49,14 +49,14 @@ export class LoginPage {
         this.navCtrl.push(ListaPage);
       })
       .catch((error: any)=> {
-        if(error.code == 'auth/email-already-in-use'){
-          toast.setMessage('E-mail ja em uso').present();  
-        }else if(error.code == 'auth/invalid-email'){
-          toast.setMessage('E-mail nao valido').present();  
-        }else if(error.code == 'auth/operation-not-allowed'){
+        if(error.code == 'auth/invalid-email'){
+          toast.setMessage('E-mail invalido').present();  
+        }else if(error.code == 'auth/user-disabled'){
+          toast.setMessage('usuario desabilitado').present();  
+        }else if(error.code == 'auth/user-not-found'){
           toast.setMessage('Habilitacao de usuario').present();  
-        }else if(error.code == 'auth/weak-password'){
-          toast.setMessage('Senha fraca').present();  
+        }else if(error.code == 'auth/wrong-password'){
+          toast.setMessage('Senha errada').present();  
         }
       })
     }
