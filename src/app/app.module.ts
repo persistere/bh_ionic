@@ -21,6 +21,20 @@ import { BancoProvider } from '../providers/banco/banco';
 import { WsBarbersService } from '../services/wsBarbers.service';
 import { HttpModule } from '@angular/http';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+const firebaseAuth = {
+
+    apiKey: "AIzaSyDBpJBCgXzA7OT-l_wAoVupETRss7iPs-I",
+    authDomain: "barberinhome-3d8e9.firebaseapp.com",
+    databaseURL: "https://barberinhome-3d8e9.firebaseio.com",
+    projectId: "barberinhome-3d8e9",
+    storageBucket: "barberinhome-3d8e9.appspot.com",
+    messagingSenderId: "1005946316641"
+}
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +52,9 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseAuth)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
