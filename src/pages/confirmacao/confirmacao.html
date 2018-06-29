@@ -8,11 +8,11 @@
 <ion-content class="outer-content">
 
 	<ion-card >
-    <img src="http://barberinhome.com.br/app/fotos/none.png"/>
+    <img [src]="item.img ? item.img : 'http://barberinhome.com.br/app/fotos/none.png' "/>
 
     <ion-card-content >
       <ion-card-title>
-        Barbeiro
+        {{item.nome_barber}}
       </ion-card-title>
     </ion-card-content>
 

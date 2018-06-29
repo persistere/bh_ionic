@@ -3,12 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ListaPage } from '../lista/lista';
 
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 
 @IonicPage()
 @Component({
@@ -17,14 +13,18 @@ import { ListaPage } from '../lista/lista';
 })
 export class CadastroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastroPage');
   }
 
-  entrar() {
+  cadastrar() {
+
+
+
   	this.navCtrl.push(ListaPage);
   }
 

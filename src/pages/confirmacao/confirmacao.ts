@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WsBarbersService } from '../../services/wsBarbers.service';
 
-import { PagamentoPage } from '../pagamento/pagamento';
+import { SucessoPage } from '../sucesso/sucesso';
+
 
 
 @IonicPage()
@@ -11,22 +13,31 @@ import { PagamentoPage } from '../pagamento/pagamento';
 })
 export class ConfirmacaoPage {
 
+  item: any;
+
 	public event = {
-	    month: '2018-02-19',
-	    timeStarts: '07:43'
+	    month: '2018-07-10',
+	    timeStarts: '10:30'
 	}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillLoad() {
+
+    this.item = this.navParams.get('item');
+
     
-    
+    // Observable.forkJoin().subscribe( data => {
+    //   this.img = data[0];
+    //   console.log(data)
+    // })
     
   }
 
   pagamento() {
-  	this.navCtrl.push(PagamentoPage);
+  	this.navCtrl.push(SucessoPage);
   }
 
 }
