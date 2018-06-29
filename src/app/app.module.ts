@@ -14,6 +14,7 @@ import { ConfirmacaoPage } from '../pages/confirmacao/confirmacao';
 import { PagamentoPage } from '../pages/pagamento/pagamento';
 import { PreHomePage } from '../pages/pre-home/pre-home';
 import { SucessoPage } from '../pages/sucesso/sucesso';
+import { RecuperarPage } from '../pages/recuperar/recuperar';
 
 import { NativeStorage } from '@ionic-native/native-storage';
 import { BancoProvider } from '../providers/banco/banco';
@@ -47,7 +48,8 @@ const firebaseAuth = {
     ConfirmacaoPage,
     PagamentoPage,
     PreHomePage,
-    SucessoPage
+    SucessoPage,
+    RecuperarPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ const firebaseAuth = {
     ConfirmacaoPage,
     PagamentoPage,
     PreHomePage,
-    SucessoPage
+    SucessoPage,
+    RecuperarPage
   ],
   providers: [
     StatusBar,

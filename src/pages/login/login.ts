@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { ListaPage } from '../lista/lista';
+import { RecuperarPage } from '../recuperar/recuperar';
 
 import { Users } from './users';
 
@@ -60,9 +61,10 @@ export class LoginPage {
         }
       })
     }
-       
-    
-  	
+  }
+
+  recuperar(){
+    this.navCtrl.push(RecuperarPage);
   }
 
 }
