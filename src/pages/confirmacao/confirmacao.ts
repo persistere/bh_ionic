@@ -108,7 +108,7 @@ export class ConfirmacaoPage {
   salvarAgendamento(){
 
     let dia = this.dia.value;
-    dia = (dia.day+"/"+dia.month+"/"+dia.year);
+    dia = (dia.year+"/"+dia.month+"/"+dia.day);
 
     let hora = this.hora.value;
     hora = hora.hour+":"+hora.minute;
