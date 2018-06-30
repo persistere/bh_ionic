@@ -23,8 +23,12 @@ export class ConfirmacaoPage {
 
   data: Observable<any>;
 
+  myDate: String = new Date().toISOString();
+
+
+
 	public event = {
-	    month: '2018-07-10',
+	    month: this.myDate, 
 	    timeStarts: '10:30'
 	}
 
@@ -32,6 +36,8 @@ export class ConfirmacaoPage {
   @ViewChild('cep') cep;
   @ViewChild('endereco') endereco;
   @ViewChild('complemento') complemento;
+  @ViewChild('dia') dia;
+  @ViewChild('hora') hora;
 
   okEndereco:boolean = false;
 
@@ -101,26 +107,28 @@ export class ConfirmacaoPage {
 
   salvarAgendamento(){
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    let dia = this.dia.value;
+    dia = (dia.day+"/"+dia.month+"/"+dia.year);
 
+    let hora = this.hora.value;
+    hora = hora.hour+":"+hora.minute;
 
     var url = 'http://barberinhome.com.br/app/rest/wsAddAgenda';
     let postData = new FormData();
 
     postData.append('cep', this.cep.value);
     postData.append('endereco', this.endereco.value);
-    postData.append('complemento' ,this.complemento.value);
-    postData.append('dia', 'dia');
-    postData.append('hora', 'hora');
+    postData.append('complemento', this.complemento.value);
+    postData.append('dia', dia);
+    postData.append('hora', hora);
+    postData.append('id_cliente', "5");
 
-    this.data = this.http.post(url, postData, {headers});
+    this.data = this.http.post(url, postData);
     this.data.subscribe(data => {
-      console.log(data);
+       this.navCtrl.push(SucessoPage);   
     })
 
-
-    this.navCtrl.push(SucessoPage);
+   
   }
 
 

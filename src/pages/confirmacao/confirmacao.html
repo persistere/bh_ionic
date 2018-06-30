@@ -50,7 +50,7 @@
       <ion-label>Dia
       <ion-avatar ><ion-icon name="md-calendar"></ion-icon></ion-avatar>
       </ion-label>
-      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month" #dia></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -58,7 +58,7 @@
       <ion-avatar ><ion-icon name="md-clock"></ion-icon></ion-avatar>
 
       </ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts" #hora></ion-datetime>
     </ion-item>
 	</ion-list>
 
