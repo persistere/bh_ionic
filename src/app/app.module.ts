@@ -15,11 +15,15 @@ import { PagamentoPage } from '../pages/pagamento/pagamento';
 import { PreHomePage } from '../pages/pre-home/pre-home';
 import { SucessoPage } from '../pages/sucesso/sucesso';
 import { RecuperarPage } from '../pages/recuperar/recuperar';
+import { TabsPage } from '../pages/tabs/tabs';
+import { PedidosPage } from '../pages/pedidos/pedidos';
 
 import { NativeStorage } from '@ionic-native/native-storage';
 import { BancoProvider } from '../providers/banco/banco';
 
 import { WsBarbersService } from '../services/wsBarbers.service';
+import { WsAgendaService } from '../services/wsAgenda.service';
+
 import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
@@ -49,7 +53,9 @@ const firebaseAuth = {
     PagamentoPage,
     PreHomePage,
     SucessoPage,
-    RecuperarPage
+    RecuperarPage,
+    TabsPage,
+    PedidosPage
   ],
   imports: [
     BrowserModule,
@@ -70,12 +76,15 @@ const firebaseAuth = {
     PagamentoPage,
     PreHomePage,
     SucessoPage,
-    RecuperarPage
+    RecuperarPage,
+    TabsPage,
+    PedidosPage
   ],
   providers: [
     StatusBar,
     NativeStorage,
     WsBarbersService,
+    WsAgendaService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BancoProvider

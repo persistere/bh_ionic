@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 
 import { ListaPage } from '../lista/lista';
 import { RecuperarPage } from '../recuperar/recuperar';
@@ -28,16 +28,26 @@ export class LoginPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public fire: AngularFireAuth,
-              public toasCtrl: ToastController) {
+              public toasCtrl: ToastController,
+              public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  presentLoading() {  
+    
+  }
+
   entrar() {
     let toast = this.toasCtrl.create({duration: 2000, position: 'bottom'});
 
+      this.loadingCtrl.create({
+      
+      duration: 3000,
+      dismissOnPageChange: true
+    }).present();
       
       if(this.email.value == '' ){
         toast.setMessage('Preencha o e-mail').present();  

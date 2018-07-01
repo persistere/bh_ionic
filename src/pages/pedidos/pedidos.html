@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Agenda</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	
+    <ion-card  *ngFor="let post of posts"> 
+
+    
+    <ion-card-content >
+      <ion-card-title>
+        {{post.dia}}
+      </ion-card-title>
+    </ion-card-content>
+
+    <ion-row no-padding  >
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          4.9
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='cut'></ion-icon>
+          Exp. +5 anos
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
