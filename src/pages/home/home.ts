@@ -25,39 +25,10 @@ export class HomePage {
     this.intro = this.navParams.get('intro');
   }
 
-  ionViewDidEnter(){
-    this.setStorage();
-  }
-
   
-
-  setStorage(){
-    this.nativeStorage.setItem('myitem',{
-      intro: this.intro
-    })
-    .then( ()=> {
-       this.entrar();
-    })
-    .catch( error => {
-      console.log(error);
-    })
-  }
-
-  getStorage(){
-    return this.nativeStorage.getItem('myitem')
-    .then(
-        data => {
-            this.intro = true;
-        })
-    .catch( () => {
-        this.intro = false;
-    });
-  }
-
 
   entrar() {
   	this.navCtrl.push(PreHomePage);
-    this.setStorage();
   }
 
   cadastrar() {
