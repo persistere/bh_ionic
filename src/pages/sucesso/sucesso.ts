@@ -63,13 +63,20 @@ export class SucessoPage {
   }
 
   logout(){
+
+    let tabs = document.querySelectorAll('.show-tabbar');
+    if (tabs !== null) {
+        Object.keys(tabs).map((key) => {
+            tabs[key].style.display = 'none';
+        });
+
+    }
     
     let taost = this.toastCtrl.create({duration: 3000, position: 'bottom'});
 
     this.fire.auth.signOut();
 
     taost.setMessage('Até logo...').present();
-
 
     this.navCtrl.push(PreHomePage);
   }

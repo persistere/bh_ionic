@@ -33,7 +33,7 @@ export class PedidosPage {
     this.loadAgenda(); 
   }
 
-  loadAgenda(){
+  loadAgenda() {
 
     if(!(this.posts.length > 0)){
       let loading = this.loadingController.create();
@@ -41,12 +41,16 @@ export class PedidosPage {
 
       this.wsAgendaService.getAgenda(this.email)
       .subscribe(data => {
-        for (let post of data.barbers) {
-          this.posts.push(post)
+
+        if(data.sucesso !== 0){
+          for (let post of data.barbers) {
+            this.posts.push(post)
+          }
         }
+
         loading.dismiss();
       });
-    }
+    } 
   }
 
 }

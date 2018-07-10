@@ -1,11 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
-import { ListaPage } from '../lista/lista';
+import { TabsPage } from '../tabs/tabs';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-
-
 
 
 @IonicPage()
@@ -58,7 +56,7 @@ export class CadastroPage {
     if(this.okNome) {
       this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
       .then( data => {
-        this.navCtrl.push(ListaPage);
+        this.navCtrl.push(TabsPage);
       })
       .catch((error: any)=> {
         if(error.code == 'auth/email-already-in-use'){

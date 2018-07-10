@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 
-import { ListaPage } from '../lista/lista';
+
 import { RecuperarPage } from '../recuperar/recuperar';
+
+import { TabsPage } from '../tabs/tabs';
 
 import { Users } from './users';
 
@@ -62,7 +64,7 @@ export class LoginPage {
       if(this.okLogin) {
       this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value)
       .then( data => {
-        this.navCtrl.push(ListaPage);
+        this.navCtrl.push(TabsPage); 
       })
       .catch((error: any)=> { 
         if(error.code == 'auth/invalid-email'){

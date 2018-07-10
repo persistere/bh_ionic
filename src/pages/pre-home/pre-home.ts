@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
-import { ListaPage } from '../lista/lista';
+
 import { CadastroPage } from '../cadastro/cadastro';
 import { LoginPage } from '../login/login';
 
@@ -12,18 +12,18 @@ import { LoginPage } from '../login/login';
 })
 export class PreHomePage {
 
+  tabBarElement: any;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private viewCtrl: ViewController) {
+
+    this.tabBarElement = document.querySelector('.show-tabbar');
   }
 
-  ionViewWillEnter() {
-    this.viewCtrl.showBackButton(false);
-	}
 
-  
-  entrar() {
-  	this.navCtrl.push(ListaPage);
+  ngAfterViewInit() {
+    this.viewCtrl.showBackButton(false);
   }
 
   cadastrar() {

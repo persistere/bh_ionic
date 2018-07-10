@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { ListaPage } from '../lista/lista';
 import { CadastroPage } from '../cadastro/cadastro';
 import { LoginPage } from '../login/login';
 import { PreHomePage } from '../pre-home/pre-home';
@@ -25,7 +24,6 @@ export class HomePage {
     this.intro = this.navParams.get('intro');
   }
 
-  
 
   entrar() {
   	this.navCtrl.push(PreHomePage);

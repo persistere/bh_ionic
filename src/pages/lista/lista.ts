@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController, ToastController } from 'ionic-angular';
 
 import { ConfirmacaoPage } from '../confirmacao/confirmacao';
 
+import { PreHomePage } from '../pre-home/pre-home';
+
 import { WsBarbersService } from '../../services/wsBarbers.service';
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -18,7 +22,9 @@ export class ListaPage {
               public navParams: NavParams,
               public loadingController: LoadingController,
               public wsBarbersService: WsBarbersService,
-              private viewCtrl: ViewController) {
+              public toastCtrl: ToastController,
+              private viewCtrl: ViewController,
+              public fire: AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -26,6 +32,7 @@ export class ListaPage {
 
     this.loadBarbers(); 
   }
+
 
   loadBarbers(){
     if(!(this.posts.length > 0)){
@@ -47,6 +54,25 @@ export class ListaPage {
   	this.navCtrl.push(ConfirmacaoPage, {
       item: post
     });
+  }
+
+  logout() {
+
+    let tabs = document.querySelectorAll('.show-tabbar');
+    if (tabs !== null) {
+        Object.keys(tabs).map((key) => {
+            tabs[key].style.display = 'none';
+        });
+
+    }
+    
+    let taost = this.toastCtrl.create({duration: 3000, position: 'bottom'});
+
+    this.fire.auth.signOut();
+
+    taost.setMessage('Até logo...').present();
+
+    this.navCtrl.push(PreHomePage);
   }
 
 }
