@@ -12,7 +12,7 @@ export class WsAgendaService {
 
 	}
 
-	getAgenda() {
-		return this.http.get(Config.WSAGENDA).map(res => res.json());
+	getAgenda( email ) {
+		return this.http.get(Config.WSAGENDA+'?email='+email).map(res => res.json());
 	}
 }

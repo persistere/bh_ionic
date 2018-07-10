@@ -9,6 +9,7 @@ import { SucessoPage } from '../sucesso/sucesso';
 
 import { AlertController } from 'ionic-angular';
 
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -23,9 +24,7 @@ export class ConfirmacaoPage {
 
   data: Observable<any>;
 
-  myDate: String = new Date().toISOString();
-
-
+  myDate: string = new Date().toISOString();
 
 	public event = {
 	    month: this.myDate, 
@@ -39,25 +38,25 @@ export class ConfirmacaoPage {
   @ViewChild('dia') dia;
   @ViewChild('hora') hora;
 
-  okEndereco:boolean = false;
+  okEndereco: boolean = false;
+
+  email: string;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
-              public http: Http) {
+              public http: Http,
+              public fire: AngularFireAuth) {
+
+    this.email = fire.auth.currentUser.email;
+
+
   }
 
   ionViewWillLoad() {
-
     this.item = this.navParams.get('item');
-
-    
-    // Observable.forkJoin().subscribe( data => {
-    //   this.img = data[0];
-    //   console.log(data)
-    // })
-    
+     
   }
 
   
@@ -105,7 +104,7 @@ export class ConfirmacaoPage {
   } //end pagamento
 
 
-  salvarAgendamento(){
+  salvarAgendamento() {
 
     let dia = this.dia.value;
     dia = (dia.year+"/"+dia.month+"/"+dia.day);
@@ -113,7 +112,7 @@ export class ConfirmacaoPage {
     let hora = this.hora.value;
     hora = hora.hour+":"+hora.minute;
 
-    var url = 'http://barberinhome.com.br/app/rest/wsAddAgenda';
+    var url = 'http://barberinhome.com.br/app/rest/wsAddSolicitacao';
     let postData = new FormData();
 
     postData.append('cep', this.cep.value);
@@ -121,14 +120,26 @@ export class ConfirmacaoPage {
     postData.append('complemento', this.complemento.value);
     postData.append('dia', dia);
     postData.append('hora', hora);
-    postData.append('id_cliente', "5");
+    postData.append('id_cliente', this.email);
+    postData.append('id_barbeiro', this.item.id_barber);
 
     this.data = this.http.post(url, postData);
+
     this.data.subscribe(data => {
-       this.navCtrl.push(SucessoPage);   
+
+       this.navCtrl.push(SucessoPage,{
+          barbeiro: this.item.nome_barber,
+          id_barbeiro: this.item.id_barber,
+          cep: this.cep.value,
+          endereco: this.endereco.value,
+          complemento: this.complemento.value,
+          dia: dia,
+          hora: hora,
+          id_cliente: this.email,
+          img: this.item.img
+       });   
     })
 
-   
   }
 
 
