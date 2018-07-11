@@ -6,7 +6,6 @@ import { RecuperarPage } from '../recuperar/recuperar';
 
 import { TabsPage } from '../tabs/tabs';
 
-import { Users } from './users';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 

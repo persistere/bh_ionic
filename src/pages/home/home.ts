@@ -6,7 +6,6 @@ import { LoginPage } from '../login/login';
 import { PreHomePage } from '../pre-home/pre-home';
 
 
-import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @Component({
@@ -18,8 +17,7 @@ export class HomePage {
   intro: boolean;
 
   constructor(public navCtrl: NavController, 
-              private navParams: NavParams,
-              private nativeStorage: NativeStorage) {
+              private navParams: NavParams) {
 
     this.intro = this.navParams.get('intro');
   }

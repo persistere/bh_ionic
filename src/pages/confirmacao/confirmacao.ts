@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams , ToastController} from 'ionic-angular';
-import { WsBarbersService } from '../../services/wsBarbers.service';
 
-import { Http, Headers } from '@angular/http';
+
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { SucessoPage } from '../sucesso/sucesso';

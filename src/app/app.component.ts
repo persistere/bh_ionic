@@ -3,13 +3,13 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { PreHomePage } from '../pages/pre-home/pre-home';
+
 
 import { HomePage } from '../pages/home/home';
 
 import { TabsPage } from '../pages/tabs/tabs'
 
-import { ListaPage } from '../pages/lista/lista';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
